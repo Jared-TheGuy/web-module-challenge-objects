@@ -28,6 +28,9 @@ Test your createMenuItems function by doing the following:
   
   For example: createMenuItem("pizza",5,"lunch") would return this as the object: {name:"Pizza",price:5,category:"lunch"}
 */
+console.log(createMenuItem("booz",10,"flip"));
+console.log(createMenuItem("forget",11,"flub"));
+console.log(createMenuItem("grav",45,"Oof"));
 
 
 
@@ -48,6 +51,14 @@ const burger = {
   price: 18, 
   category: "Lunch", 
   
+  discount: function(string){
+    if(string.toLowerCase()==="teacher" || string.toLowerCase()==="student"){
+      return this.price - (this.price * 0.25);
+    }
+    else{
+      return this.price - (this.price * 0.10);
+    }
+  }
 }
 
 
@@ -69,7 +80,7 @@ Using the reviews array above:
   1. log only Julius' feedback to the console - no function needed 
 */
 
-
+console.log(reviews[5].feedback);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -92,8 +103,9 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 
-function addReview(/*Your Code Here */){
-  /*Your Code Here */
+function addReview(array, name, rating, feedback){
+  array.push({name, rating, feedback});
+  return array;
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -107,8 +119,8 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, index) {
+  return `${array[index].name} gave the restaurant a ${array[index].rating} star review, and their feedback was: ${array[index].feedback}`;
 }
 
 
@@ -126,8 +138,9 @@ Use the getLastReview function below to do the following:
 */
 
 
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  let last = array.length -1;
+  return `${array[last].name} gave the restaurant a ${array[last].rating} star review, and their feedback was: ${array[last].feedback}`
 } 
 
 
